@@ -4,7 +4,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>海蓝&#39;BLOG</title>
+  <title>一次局域网入侵 | 海蓝&#39;BLOG</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -71,7 +71,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -192,99 +192,92 @@
         <!-- // End height spacing helper -->
     </div>
         <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/04/12/一次局域网入侵/">一次局域网入侵</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2016-04-12T13:18:58.000Z" itemprop="datePublished">
           Apr,12 2016
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        起因
-案发时间为上上周日，正在跟小伙伴们打dota2，在下中单wr十分钟单杀对面2次，只能用无解肥来形容，然后突然巨卡，再也连不上了。于是看了一下路由器，卧槽，IP尾号105的正以5.6Mb/s下载一些未知事物。然后我想简单的用路由器限速，讲道理，我觉得5M/s的车速的确是应该限制一下的。然后我发现竟然没有任何效果。
-当时我的内心是崩溃的。
-于是想到以前看到过的新闻，也许有人蹭网也说不定。赶紧研究研究局域网安全问题。于是进入正题。
-工具
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/04/12/一次局域网入侵/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>一次局域网入侵</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/03/01/hello-world/">一些常用的hexo命令</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-02-29T16:00:00.000Z" itemprop="datePublished">
-          Mar,01 2016
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        博客搬家，文章全挂。。记录几条常用hexo命令，以备不时之需..
+        <div class="col-md-8 col-md-offset-2">
+      		<p>起因</p>
+<p>案发时间为上上周日，正在跟小伙伴们打dota2，在下中单wr十分钟单杀对面2次，只能用无解肥来形容，然后突然巨卡，再也连不上了。于是看了一下路由器，卧槽，IP尾号105的正以5.6Mb/s下载一些未知事物。然后我想简单的用路由器限速，讲道理，我觉得5M/s的车速的确是应该限制一下的。然后我发现竟然没有任何效果。</p>
+<p>当时我的内心是崩溃的。</p>
+<p>于是想到以前看到过的新闻，也许有人蹭网也说不定。赶紧研究研究局域网安全问题。于是进入正题。</p>
+<h3 id="工具">工具</h3><h4 id="硬件">硬件</h4><p>一台mac</p>
+<h4 id="软件">软件</h4><p>软件主要有几类，一一介绍。</p>
+<h6 id="抓包">抓包</h6><p>Charles 这个应该很多人用过，调试网络利器。</p>
+<p>Wireshark 优势在于不仅可以抓取http包。</p>
+<h6 id="端口扫描">端口扫描</h6><p>Nmap 主要用于端口扫描，而且可以探测出操作系统类型。</p>
+<h5 id="数据包篡改与探测">数据包篡改与探测</h5><p>Ettercap 最重要的工具，集多种攻击方式于一身，在咖啡厅获取别人信息，都是通过它干的。</p>
+<h5 id="显示图片">显示图片</h5><p>Driftnet 抓取经过本机的数据包的图片并显示，同样支持音频文件。</p>
+<p><br><br><br><br><br><br>这几个工具还是挺难安装的，我在安装的时候，遇到的问题，都是墙的关系，所以重装了好几次。</p>
+<p>我是使用brew和MacPorts安装的，如果不借助这两个安装，那只能自己去网站，照着步骤一步一步自己添加依赖，慢慢装了。</p>
+<hr>
+<h3 id="开始">开始</h3><p>上面提到的工具，我只用到了2个 ettercap + driftnet</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo ettercap -<span class="constant">G</span></span><br></pre></td></tr></table></figure>
+<p>上面这条命令是启动图形界面的，启动后，会出来这么个东西:</p>
+<p><img src="http://7xswuf.com2.z0.glb.clouddn.com/ettercap.png" height="350" width="500"><br><br><br>不得不说，图标深得我心。</p>
+<p>然后点sniff，左上角第二个选项，选择网卡。<br>左上角的4个会变成下面的9个:<br><img src="http://7xswuf.com2.z0.glb.clouddn.com/ettercap2.png" alt=""></p>
+<p>点击Hosts -&gt; Scan for hosts扫描路由器中的IP。</p>
+<p>然后把路由器的IP放到Target 2,其他的放到Target 1。</p>
+<p>点Mitm -&gt; ARP poinsoning 弹出对话框，选择Sniff remote connections。</p>
+<p>OK，最后点左上角start -&gt; start sniffing。</p>
+<p>不出意外的话，就已经完成局域网ARP攻击了。再开个终端输入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo driftnet -<span class="tag">i</span> <span class="string">"网卡"</span></span><br></pre></td></tr></table></figure>
+<p>然后就可以等待了。</p>
+<p>或者加入你有2台电脑，可以用另一台试一下，看看这台是否可以监测另一台电脑正在浏览的图片。</p>
+<p>很多人觉得图形界面操作太low，想直接通过终端操作ettercap，在此奉上指令:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudettercap -<span class="tag">i</span> en233 -T -<span class="tag">q</span> -M arp:remote /<span class="number">192.168</span>.<span class="number">0.1</span><span class="comment">//192.168.0.12-40/</span></span><br></pre></td></tr></table></figure>
+<p>上面这行指令，意思是扫描en233网卡上192.168.0.1与192.168.0.12到40之间的数据包。</p>
+<p>由于本人也是门外汉，所以如果想深入一点研究ettercap，最好去<a href="https://github.com/Ettercap/ettercap" target="_blank" rel="external">git</a>上研究下readme文档，然后去一些墙外的专业网站。</p>
+<p><br><br><br><br><br><br>最后不得不吐槽一下，我这种外行人都能做到这种程度，网络究竟是有多不安全？</p>
 
-
-本地预览
-1$ hexo server
-部署
-12$ hexo deploy --g$ hexo generate --d
-写文章的话
-1$ hexo new "article name"
-文章会生成在blog/source/_posts/目录下。
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/03/01/hello-world/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/03/01/hello-world/">
+        一些常用的hexo命令 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//deepmissea.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>Dream as if you’ll live forever, live as if you’ll die today.</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
